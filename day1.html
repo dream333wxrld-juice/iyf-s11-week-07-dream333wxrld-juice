@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: Theme Persistence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #222222;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+        }
+
+        body.dark {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        body.dark button {
+            background-color: #f0f0f0;
+            color: #121212;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Theme Persistence</h1>
+    <p>Toggle the theme below. It will stay the same even after refreshing the page.</p>
+
+    <button id="themeToggle">Toggle Theme</button>
+
+    <script>
+        const THEME_KEY = "preferredTheme";
+        const body = document.body;
+        const toggleBtn = document.getElementById("themeToggle");
+
+        // Apply saved theme on page load
+        function applyTheme() {
+            const savedTheme = localStorage.getItem(THEME_KEY);
+            if (savedTheme === "dark") {
+                body.classList.add("dark");
+            } else {
+                body.classList.remove("dark");
+            }
+        }
+
+        // Toggle theme and save preference
+        toggleBtn.addEventListener("click", function() {
+            body.classList.toggle("dark");
+
+            const currentTheme = body.classList.contains("dark") ? "dark" : "light";
+            localStorage.setItem(THEME_KEY, currentTheme);
+        });
+
+        // Run on page load
+        applyTheme();
+    </script>
+
+</body>
+</html>
