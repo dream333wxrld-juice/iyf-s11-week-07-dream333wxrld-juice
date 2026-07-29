@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Refactor Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .before {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .after {
+            border-left: 4px solid #27ae60;
+        }
+
+        #output {
+            background-color: #eafaf1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-top: 15px;
+            padding-left: 20px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 4: Refactor Challenge</h1>
+
+    <h2>Before (Messy Code)</h2>
+    <pre class="before">function calc(a, b, c) {
+    if (a == null) return;
+    let x = a.filter(i => i.p > 10);
+    let y = 0;
+    for (let i = 0; i < x.length; i++) {
+        y += x[i].p * x[i].q;
+    }
+    if (y > 100) {
+        y = y * 0.9;
+    }
+    return y;
+}</pre>
+
+    <h2>After (Refactored)</h2>
+    <pre class="after">const MINIMUM_PRICE_THRESHOLD = 10;
+const BULK_DISCOUNT_THRESHOLD = 100;
+const BULK_DISCOUNT_RATE = 0.9;
+
+function calculateOrderTotal(items) {
+    if (!items || items.length === 0) {
+        return 0;
+    }
+
+    const eligibleItems = items.filter(
+        item => item.price > MINIMUM_PRICE_THRESHOLD
+    );
+
+    let total = eligibleItems.reduce((sum, item) => {
+        return sum + (item.price * item.quantity);
+    }, 0);
+
+    if (total > BULK_DISCOUNT_THRESHOLD) {
+        total = total * BULK_DISCOUNT_RATE;
+    }
+
+    return total;
+}</pre>
+
+    <h2>Improvements Made</h2>
+    <ul>
+        <li>Meaningful function and variable names (calc → calculateOrderTotal)</li>
+        <li>Named constants instead of magic numbers (10, 100, 0.9)</li>
+        <li>Used reduce() instead of manual for loop</li>
+        <li>Added input validation (null/empty check)</li>
+        <li>Used full property names (price, quantity) instead of abbreviations</li>
+    </ul>
+
+    <h2>Live Test Output</h2>
+    <div id="output"></div>
+
+    <script src="day4.js"></script>
+    <script>
+        const testItems = [
+            { price: 15, quantity: 3 },
+            { price: 5, quantity: 10 },
+            { price: 25, quantity: 2 }
+        ];
+
+        const output = document.getElementById("output");
+        output.innerHTML = `
+            Order total: $${calculateOrderTotal(testItems).toFixed(2)}<br>
+            Empty array test: $${calculateOrderTotal([]).toFixed(2)}<br>
+            Null test: ${calculateOrderTotal(null)}
+        `;
+    </script>
+
+</body>
+</html>
