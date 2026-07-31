@@ -8,6 +8,8 @@
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",
     "format": "prettier --write \"**/*.js\""
+    "test": "vitest"
+    
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.8.0",
     "prettier": "^3.9.6",
-    "typescript-eslint": "^8.65.0"
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
   }
 }
