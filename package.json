@@ -4,13 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix",
-    "format": "prettier --write \"**/*.js\""
-    "test": "vitest"
-    
-  },
+  "lint": "eslint . --ext .js",
+  "lint:fix": "eslint . --ext .js --fix",
+  "format": "prettier --write \"**/*.{js,html,css}\"",
+  "test": "vitest"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dream333wxrld-juice/iyf-s11-week-07-dream333wxrld-juice.git"
