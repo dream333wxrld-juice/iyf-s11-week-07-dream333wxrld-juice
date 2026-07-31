@@ -1,0 +1,30 @@
+{
+  "name": "iyf-s11-week-07-dream333wxrld-juice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write \"**/*.js\""
+
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dream333wxrld-juice/iyf-s11-week-07-dream333wxrld-juice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dream333wxrld-juice/iyf-s11-week-07-dream333wxrld-juice/issues"
+  },
+  "homepage": "https://github.com/dream333wxrld-juice/iyf-s11-week-07-dream333wxrld-juice#readme",
+  "devDependencies": {
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6"
+  }
+}
