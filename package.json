@@ -8,9 +8,7 @@
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",
     "format": "prettier --write \"**/*.js\""
-
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dream333wxrld-juice/iyf-s11-week-07-dream333wxrld-juice.git"
@@ -24,7 +22,11 @@
   },
   "homepage": "https://github.com/dream333wxrld-juice/iyf-s11-week-07-dream333wxrld-juice#readme",
   "devDependencies": {
-    "eslint": "^10.8.0",
-    "prettier": "^3.9.6"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.8.0",
+    "prettier": "^3.9.6",
+    "typescript-eslint": "^8.65.0"
   }
 }
