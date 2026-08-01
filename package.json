@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-  "lint": "eslint . --ext .js",
-  "lint:fix": "eslint . --ext .js --fix",
-  "format": "prettier --write \"**/*.{js,html,css}\"",
-  "test": "vitest"
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write \"**/*.js\"",
+    "test": "vitest"
 },
   "repository": {
     "type": "git",
